@@ -30,9 +30,9 @@ Things you may want to cover:
 * Deployment instructions
 2 ways to run the application's event checker
 1. Via rails console
-  - rails c
+  - bundle exec rails c
   - Event.non_overlapping_available
 
 2. Via url
-  - rails s
+  - bundle exec rails s
   - visit the url: http://localhost:3000/events/non_overlapping_events

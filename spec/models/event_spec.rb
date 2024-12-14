@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Event, type: :model do
   let!(:available_event_1) { Event.create!(start_time: "2018-12-19 16:00:00", end_time: "2018-12-19 17:00:00", event_type: "available") }
