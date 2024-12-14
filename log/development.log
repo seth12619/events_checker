@@ -1,0 +1,123 @@
+  [1m[35m (171.1ms)[0m  [1m[35mCREATE DATABASE "development_calendar_events_db" ENCODING = 'utf8'[0m
+  [1m[35m (149.9ms)[0m  [1m[35mCREATE DATABASE "test_calendar_events_db" ENCODING = 'utf8'[0m
+  [1m[35m (1555.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "development_calendar_events_db"[0m
+  [1m[35m (95.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test_calendar_events_db"[0m
+  [1m[35m (114.2ms)[0m  [1m[35mCREATE DATABASE "development_calendar_events_db" ENCODING = 'utf8'[0m
+  [1m[35m (106.7ms)[0m  [1m[35mCREATE DATABASE "test_calendar_events_db" ENCODING = 'utf8'[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8221635382056118995)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEvents (20241210050057)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "event_type" character varying, "start_time" timestamp(6), "end_time" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241210050057"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-12-10 05:22:19.948736"], ["updated_at", "2024-12-10 05:22:19.948736"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8221635382056118995)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8221635382056118995)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8221635382056118995)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (1.4ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "booked"], ["start_time", "2018-12-19 16:00:00"], ["end_time", "2018-12-19 17:00:00"], ["created_at", "2024-12-10 05:30:28.344412"], ["updated_at", "2024-12-10 05:30:28.344412"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "booked"], ["start_time", "2018-12-20 09:00:00"], ["end_time", "2018-12-20 10:00:00"], ["created_at", "2024-12-10 05:30:28.358498"], ["updated_at", "2024-12-10 05:30:28.358498"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "booked"], ["start_time", "2018-12-21 13:00:00"], ["end_time", "2018-12-21 13:30:00"], ["created_at", "2024-12-10 05:30:28.368616"], ["updated_at", "2024-12-10 05:30:28.368616"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "available"], ["start_time", "2018-12-19 16:00:00"], ["end_time", "2018-12-19 17:00:00"], ["created_at", "2024-12-10 05:30:28.370018"], ["updated_at", "2024-12-10 05:30:28.370018"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "available"], ["start_time", "2018-12-20 09:30:00"], ["end_time", "2018-12-20 11:30:00"], ["created_at", "2024-12-10 05:30:28.371446"], ["updated_at", "2024-12-10 05:30:28.371446"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "available"], ["start_time", "2018-12-28 13:00:00"], ["end_time", "2018-12-28 15:00:00"], ["created_at", "2024-12-10 05:30:28.372894"], ["updated_at", "2024-12-10 05:30:28.372894"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_type", "start_time", "end_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["event_type", "available"], ["start_time", "2018-12-29 13:00:00"], ["end_time", "2018-12-29 14:00:00"], ["created_at", "2024-12-10 05:30:28.374705"], ["updated_at", "2024-12-10 05:30:28.374705"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1 /* loading for inspect */ LIMIT $2[0m  [["event_type", "available"], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1 /* loading for inspect */ LIMIT $2[0m  [["event_type", "available"], ["LIMIT", 11]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."event_type" = $1 LIMIT $2[0m  [["event_type", "already_booked"], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "already_booked"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+Started GET "/events/non_overlapping_events" for ::1 at 2024-12-15 00:27:49 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#non_overlapping_events as HTML
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "available"]]
+  ↳ app/models/event.rb:7:in `reject'
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_type" = $1[0m  [["event_type", "booked"]]
+  ↳ app/models/event.rb:8:in `block in non_overlapping_available'
+Completed 200 OK in 63ms (Views: 0.8ms | ActiveRecord: 3.5ms | Allocations: 10234)
+
+

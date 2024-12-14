@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  port: 5433
+  pool: 5
+  username: seth
+  password: password
+
+development:
+  <<: *default
+  database: development_calendar_events_db
+
+test:
+  <<: *default
+  database: test_calendar_events_db
+production:
+  <<: *default
+  database: production_calendar_events_db

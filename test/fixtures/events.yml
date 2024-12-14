@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_type: MyString
+  start_time: 2024-12-10 13:00:57
+  end_time: 2024-12-10 13:00:57
+  day_of_week: 1
+
+two:
+  event_type: MyString
+  start_time: 2024-12-10 13:00:57
+  end_time: 2024-12-10 13:00:57
+  day_of_week: 1
